@@ -89,48 +89,48 @@ jQuery.fn.extend({
 			item.el.prepend($tail);
 		});
 
-		// handle click event
-		$table.on("click", "div.tt div.content", function (e) {
+// 		// handle click event
+// 		$table.on("click", "div.tt div.content", function (e) {
 
-			var $el = $(e.currentTarget).closest(".tt");
-			var $tr = $el.closest("tr");
-			var id = $el.data('tt-id');
-			var item = index[id];
+// 			var $el = $(e.currentTarget).closest(".tt");
+// 			var $tr = $el.closest("tr");
+// 			var id = $el.data('tt-id');
+// 			var item = index[id];
 
-			if (item.showChildren === true) {
-				// hide all children
-				item.showChildren = false;
+// 			if (item.showChildren === true) {
+// 				// hide all children
+// 				item.showChildren = false;
 
-				function hide(parentId) {
-					var item = index[parentId];
-					item.children.forEach(function (child) {
-						if (child.showChildren !== undefined) {
-							child.showChildren = false;
-						}
+// 				function hide(parentId) {
+// 					var item = index[parentId];
+// 					item.children.forEach(function (child) {
+// 						if (child.showChildren !== undefined) {
+// 							child.showChildren = false;
+// 						}
 
-						$(child.el).closest("tr").addClass("tt-hide");
-						hide(child.id);
-					});
-				}
+// 						$(child.el).closest("tr").addClass("tt-hide");
+// 						hide(child.id);
+// 					});
+// 				}
 
-				hide(id);
-			}
-			else {
-				// show direct children
-				item.showChildren = true;
-				item.children.forEach(function (child) {
-					$(child.el).closest("tr").removeClass("tt-hide");
-				});
-			}
-		});
+// 				hide(id);
+// 			}
+// 			else {
+// 				// show direct children
+// 				item.showChildren = true;
+// 				item.children.forEach(function (child) {
+// 					$(child.el).closest("tr").removeClass("tt-hide");
+// 				});
+// 			}
+// 		});
 
-		// initially hide all children
-		items.forEach(function (item) {
+// 		// initially hide all children
+// 		items.forEach(function (item) {
 
-			if (item.parent === undefined && item.children.length > 0) {
-				item.el.find(".content").click();
-			}
-		});
+// 			if (item.parent === undefined && item.children.length > 0) {
+// 				item.el.find(".content").click();
+// 			}
+// 		});
 	}
 });
 
